@@ -1,0 +1,9 @@
+{
+  "name": "@py4y6/oidc-test",
+  "version": "1.0.0",
+  "description": "Test package for OIDC trusted publishing",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  }
+}
