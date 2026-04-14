@@ -15,4 +15,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npx npm@latest publish --access public
+      - name: Debug OIDC token claims
+        run: |
+          OIDC_TOKEN=$(curl -sS -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=https://registry.npmjs.org" | jq -r '.value')
+          echo "OIDC token payload:"
+          echo "$OIDC_TOKEN" | cut -d. -f2 | base64 -d 2>/dev/null | jq '{repository, repository_id, repository_owner, repository_owner_id, job_workflow_ref, iss, aud}'
+      - name: Publish with debug
+        run: npx npm@latest publish --access public --loglevel verbose 2>&1 || true

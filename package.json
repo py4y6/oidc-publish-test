@@ -1,11 +1,11 @@
 {
   "name": "@py4y6/oidc-test",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Test package for OIDC trusted publishing",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/py4y6/oidc-publish-test"
+    "url": "https://github.com/py4y6old/oidc-publish-test"
   },
   "publishConfig": {
     "access": "public"
